@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void conn_set()
     {
         // 2.设置好IP/端口/数据库名/用户名/密码等必要的连接信息
-        String ip = "192.168.186.113";
+        String ip = "192.168.186.154";//记住每天开始调试程序前对IP地址进行手动更新
         int port = 3306;
         String dbName = "test";
         url = "jdbc:mysql://" + ip + ":" + port + "/" + dbName; // 构建连接mysql的字符串
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e(MainActivity.TAG,rs.getString(1));
             }
         } catch (SQLException e) {
+
             Log.e(MainActivity.TAG, e.toString());
         }
     }
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         statement= conn.createStatement();
                         Log.i("MainActivity", "远程连接成功!");
                     } catch (SQLException e) {
-                        Log.e("MainActivity", "远程连接失败!"+e.toString());
+                        Log.e("MainActivity", "远程连接失败!请检查IP地址是否更新"+e.toString());
                     }
                     sql_update();
                     Log.e("MainActivity","更新数据库成功！");
@@ -145,4 +146,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 /*
 *
 * */
-/*这一句注释仅作为GitHub测试更新的用途*/
+/*这一句注释仅作为GitHub测试更新的用途，可删掉*/
